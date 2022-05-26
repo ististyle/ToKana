@@ -47,14 +47,14 @@ function separate(syllable) {
     }
 }
 
-function dropjongseong(syllable) {
+/*function dropjongseong(syllable) {
     if(!isKorean(syllable)) {
         return syllable;
     } else {
         let unicode = syllable.charCodeAt(0);
         return (String.fromCharCode(unicode - parseInt((unicode - 44032) % 28)));
     }
-}
+}*/
 
 function combine(choseong, jungseong, jongseong) {
     let cho = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
@@ -74,9 +74,9 @@ let tsuseventh = [['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ'
 let tsueighth = [['ㅍ'], ['ㅏ', 'ㅣ', 'ㅜ', 'ㅔ', 'ㅗ'], ['']]
 
 let ngfirst = [['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'], ['ㅏ', 'ㅣ', 'ㅜ', 'ㅔ', 'ㅗ'], ['ㅁ']]
-let ngsecond = [['ㅂ', 'ㅍ', 'ㅁ', 'ㅇ', 'ㅅ', 'ㅎ'], ['ㅏ', 'ㅣ', 'ㅜ', 'ㅔ', 'ㅗ'], ['']]
+let ngsecond = [['ㅂ', 'ㅍ', 'ㅁ'], ['ㅏ', 'ㅣ', 'ㅜ', 'ㅔ', 'ㅗ'], ['']]
 let ngthird = [['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'], ['ㅏ', 'ㅣ', 'ㅜ', 'ㅔ', 'ㅗ'], ['ㄴ']]
-let ngfourth = [['ㅈ', 'ㅌ', 'ㄷ', 'ㄴ', 'ㄹ'], ['ㅏ', 'ㅣ', 'ㅜ', 'ㅔ', 'ㅗ'], ['']]
+let ngfourth = [['ㅈ', 'ㅌ', 'ㄷ', 'ㄴ', 'ㄹ', 'ㅇ', 'ㅅ', 'ㅎ'], ['ㅏ', 'ㅣ', 'ㅜ', 'ㅔ', 'ㅗ'], ['']]
 let ngfifth = [['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'], ['ㅏ', 'ㅣ', 'ㅜ', 'ㅔ', 'ㅗ'], ['ㅇ']]
 let ngsixth = [['ㅋ', 'ㄱ'], ['ㅏ', 'ㅣ', 'ㅜ', 'ㅔ', 'ㅗ'], ['']]
 
@@ -176,8 +176,7 @@ function convert(prob) {
                             j++;
                         }
                     }
-                    if((seqarray[j][2] == 'ㅁ' && (seqarray[j+1][0] == 'ㅂ' || seqarray[j+1][0] == 'ㅍ' || seqarray[j+1][0] == 'ㅁ' || seqarray[j+1][0] == 'ㅇ' || seqarray[j+1][0] == 'ㅅ' || seqarray[j+1][0] == 'ㅎ')) || (seqarray[j][2] == 'ㄴ' && (seqarray[j+1][0] == 'ㅈ' || seqarray[j+1][0] == 'ㅌ' || seqarray[j+1][0] == 'ㄷ' || seqarray[j+1][0] == 'ㄴ' || seqarray[j+1][0] == 'ㄹ')) || (seqarray[j][2] == 'ㅇ' && (seqarray[j+1][0] == 'ㅋ' || seqarray[j+1][0] == 'ㄱ'))) {
-                        if(ran < prob*prob/2) {
+                    if((seqarray[j][2] == 'ㅁ' && (seqarray[j+1][0] == 'ㅂ' || seqarray[j+1][0] == 'ㅍ' || seqarray[j+1][0] == 'ㅁ')) || (seqarray[j][2] == 'ㄴ' && (seqarray[j+1][0] == 'ㅈ' || seqarray[j+1][0] == 'ㅌ' || seqarray[j+1][0] == 'ㄷ' || seqarray[j+1][0] == 'ㄴ' || seqarray[j+1][0] == 'ㄹ' || seqarray[j+1][0] == 'ㅇ' || seqarray[j+1][0] == 'ㅅ' || seqarray[j+1][0] == 'ㅎ')) || (seqarray[j][2] == 'ㅇ' && (seqarray[j+1][0] == 'ㅋ' || seqarray[j+1][0] == 'ㄱ'))) {                        if(ran < prob*prob/2) {
                             seqarray[j][2] = '';
                             seqarray.splice(j+1, 0, 'ん');
                             j++;

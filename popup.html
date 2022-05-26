@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="button.css">
+  </head>
+  <body>
+    <form id="setprob">
+        <label for="probinput">확률</label>
+        <input type="text" id="probinput" name="probinput" autocomplete="off" pattern="^(0(\.\d+)?|1(\.0+)?)$" />
+        <br>
+        <button id="changeProb">확률 바꾸기</button>
+    </form>
+    <button id="refresh">페이지 새로고침</button>
+    <br>
+    <button id="reconvert">다시 바꾸기 (트위터 등 SPA용)</button>
+    <br>
+    <button id="extrevert">기능 끄기</button>
+    <br>
+    <button id="advoption">촉음과 발음 바꾸기 (다소 느림)</button>
+    <!--<br>
+    <button id="changeColor">컬러 바꾸기</button>--->
+    <script src="popup.js"></script>
+  </body>
+</html>

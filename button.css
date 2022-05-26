@@ -1,0 +1,22 @@
+button {
+    height: 30px;
+    width: 250px;
+    outline: none;
+    margin: 5px;
+    border: none;
+    border-radius: 2px;
+}
+
+label {
+    width: 30px;
+    margin: 10px 5px 5px 15px;
+}
+
+input[type=text] {
+    width: 190px;
+    height: 25px;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin: 5px;
+    text-align: center;
+}
